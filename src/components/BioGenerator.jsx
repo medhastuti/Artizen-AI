@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const API_KEY = "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";
+const API_KEY = "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";
 
 const examplePrompts = [
   "Painter from Goa, works with acrylics",
