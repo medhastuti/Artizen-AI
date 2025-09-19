@@ -15,11 +15,11 @@
 
 ## 📦 Getting Started (Run the given commands to run)
 
-# Step 1. Install dependencies
-npm instal
+### Step 1. Install dependencies
+npm install
 
-# Step 2. Start the development server
+### Step 2. Start the development server
 npm run dev
 
-# Step 3. Open generated link in the browser.
+### Step 3. Open generated link in the browser.
 http://localhost:5173/
