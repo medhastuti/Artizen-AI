@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-const API_KEY = "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"; 
-
 export default function SocialMediaGeneratorPage() {
   const [form, setForm] = useState({
     product: 'Nature Explorer',
@@ -42,35 +40,20 @@ Tagline: <tagline>
     `;
 
     try {
-      const res = await axios.post(
-        'https://api.openai.com/v1/chat/completions',
-        {
-          model: 'gpt-4o-mini',
-          messages: [{ role: 'user', content: prompt }],
-          temperature: 0.8,
-          max_tokens: 200
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: "Bearer " + API_KEY
-          }
-        }
-      );
-      const text = res.data.choices[0].message.content;
-      const captionMatch = text.match(/Caption:\s*(.+)/i);
-      const taglineMatch = text.match(/Tagline:\s*(.+)/i);
+      const res = await axios.post('http://localhost:5001/api/generate-social-post', form);
 
       setOutput({
-        caption: captionMatch ? captionMatch[1].trim() : '',
-        tagline: taglineMatch ? taglineMatch[1].trim() : ''
+        caption: res.data.caption,
+        tagline: res.data.tagline,
       });
+
     } catch (err) {
       console.error(err);
       setError('Error generating content. Please try again.');
     } finally {
       setLoading(false);
     }
+
   };
 
   const clearOutput = () => {
