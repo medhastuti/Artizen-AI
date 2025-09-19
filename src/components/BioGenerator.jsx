@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const API_KEY = "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";
-
 const examplePrompts = [
   "Painter from Goa, works with acrylics",
   "Sculptor specializing in recycled materials",
@@ -38,31 +36,19 @@ Use expressive and artistic hashtags.
 `;
 
     try {
-      const res = await axios.post(
-        'https://api.openai.com/v1/chat/completions',
-        {
-          model: 'gpt-4o-mini',
-          messages: [{ role: 'user', content: formattedPrompt }],
-          temperature: 0.8,
-          max_tokens: 200
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${API_KEY}`
-          }
-        }
-      );
+      const res = await axios.post('http://localhost:5001/api/generate-artist-bio', { prompt });
 
-      const output = res.data.choices[0].message.content.trim();
-      setBio(output);
-      setRawResponse(res.data);
+      // Your backend returns { bio: '...' }, so just use that
+      setBio(res.data.bio);
+      setRawResponse(res.data); // Optional: keep if you want to show the raw JSON
+
     } catch (err) {
       console.error(err);
       setError('Failed to generate artist bio. Please try again.');
     } finally {
       setLoading(false);
     }
+
   };
 
   const clearBio = () => {
