@@ -27,7 +27,7 @@ export default function Sidebar({ isOpen, isMobile }) {
         </div>
         {(isOpen || !isMobile) && (
           <div>
-            <div className="font-bold text-lg text-gray-900">Hello Human</div>
+            <div className="font-bold text-lg text-gray-900">Human Testman</div>
             <div className="text-xs text-green-500 font-semibold tracking-wide">⦿ Online</div>
           </div>
         )}
