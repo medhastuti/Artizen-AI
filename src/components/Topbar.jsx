@@ -1,8 +1,24 @@
 import React from 'react'
 
-export default function Topbar() {
+export default function Topbar({ toggleSidebar, isMobile }) {
   return (
     <header className="mb-8">
+      {isMobile && (
+        <div className="flex justify-between items-center mb-4">
+          <button onClick={toggleSidebar} className="text-teal-500 hover:text-teal-700 focus:outline-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-7 w-7"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      )}
+
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div className="space-y-2">
           <h1 className="text-3xl font-bold text-slate-800">👋 Hello, Human</h1>
