@@ -36,7 +36,7 @@ Use expressive and artistic hashtags.
 `;
 
     try {
-      const res = await axios.post('http://localhost:5001/api/generate-artist-bio', { prompt });
+      const res = await axios.post('/api/generate-artist-bio', { prompt });
 
       // Your backend returns { bio: '...' }, so just use that
       setBio(res.data.bio);
