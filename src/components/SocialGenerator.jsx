@@ -40,7 +40,7 @@ Tagline: <tagline>
     `;
 
     try {
-      const res = await axios.post('http://localhost:5001/api/generate-social-post', form);
+      const res = await axios.post('/api/generate-social-post', form);
 
       setOutput({
         caption: res.data.caption,
