@@ -48,120 +48,132 @@ export default function Dashboard(){
   }
 
   return (
-    <main className='grid grid-cols-12 gap-8 p-6 max-w-7xl mx-auto min-h-screen'>
-      <section className='col-span-12 md:col-span-8'>
-        <Card>
-          <div className='flex flex-col md:flex-row items-start md:items-center justify-between mb-6'>
-            <h3 className='font-extrabold text-3xl text-gray-900 leading-tight'>AI that helps artists promote and sell</h3>
-            <div className='text-sm text-gray-500 mt-2 md:mt-0'>Try the demos</div>
-          </div>
+    <>
+      <header className="max-w-7xl mx-auto p-6 text-center">
+        <h1 className="text-5xl font-extrabold bg-gradient-to-r from-teal-500 via-cyan-500 via-teal-500 to-blue-500 bg-clip-text text-transparent select-none drop-shadow-lg">
+          Artizen AI
+        </h1>
+        <p className="mt-3 text-lg text-gray-700 max-w-xl mx-auto">
+          Empowering artists with AI-driven tools to promote, create, and sell their art effortlessly.
+        </p>
+        <hr className="mt-6 border-teal-300 max-w-auto mx-auto" />
+      </header>
 
-          <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6'>
-            {FEATURES.map(f => {
-              if (f.id === 'poster') {
-                return (
-                  <Link
-                    key={f.id}
-                    to="/poster"
-                    className="block p-5 rounded-2xl text-black font-semibold shadow-md hover:shadow-xl transition-shadow duration-300"
-                    style={{
-                      background: 'linear-gradient(to right, rgba(20, 184, 166, 0.4), rgba(6, 182, 212, 0.4))',
-                      border: '2px solid rgba(20, 184, 166, 0.7)',
-                    }}
-                  >
-                    <div className='text-lg'>{f.title}</div>
-                    <div className='text-sm opacity-90 mt-2'>{f.short}</div>
-                  </Link>
-                )
-              }
-              if (f.id === 'posts') {
-                return (
-                  <Link
-                    key={f.id}
-                    to="/social"
-                    className="block p-5 rounded-2xl text-black font-semibold shadow-md hover:shadow-xl transition-shadow duration-300"
-                    style={{
-                      background: 'linear-gradient(to right, rgba(20, 184, 166, 0.4), rgba(6, 182, 212, 0.4))',
-                      border: '2px solid rgba(20, 184, 166, 0.7)', 
-                    }}
-                  >
-                    <div className='text-lg'>{f.title}</div>
-                    <div className='text-sm opacity-90 mt-2'>{f.short}</div>
-                  </Link>
-                )
-              }
-              if (f.id === 'bios') {
-                return (
-                  <Link
-                    key={f.id}
-                    to="/bios"
-                    className="block p-5 rounded-2xl text-black font-semibold shadow-md hover:shadow-xl transition-shadow duration-300"
-                    style={{
-                      background: 'linear-gradient(to right, rgba(20, 184, 166, 0.4), rgba(6, 182, 212, 0.4))',
-                      border: '2px solid rgba(20, 184, 166, 0.7)', 
-                    }}
-                  >
-                    <div className='text-lg'>{f.title}</div>
-                    <div className='text-sm opacity-90 mt-2'>{f.short}</div>
-                  </Link>
-                )
-              }
-              return (
-                <button
-                  key={f.id}
-                  onClick={() => setOpen(f)}
-                  className='text-left p-5 rounded-2xl border border-gray-300 hover:border-teal-400 hover:shadow-lg transition-all duration-300 bg-white shadow-sm group block text-left p-4 rounded-xl border border-slate-100 hover:border-teal-400 hover:bg-teal-50 transition duration-200'
-                >
-                  <div className='font-semibold text-gray-900 text-lg'>{f.title}</div>
-                  <div className='text-sm text-gray-600 mt-2'>{f.short}</div>
-                </button>
-              )
-            })}
-          </div>
-
-          <div className='mt-8'>
-            <h4 className='font-semibold text-xl mb-3 text-gray-800'>Quick actions</h4>
-            <div className='flex gap-4 flex-wrap'>
-              <Link to='/poster' className='px-5 py-3 rounded-full bg-teal-500 hover:bg-teal-600 text-white font-semibold shadow-md transition-colors duration-300'>Go to Poster Generator</Link>
-              <button onClick={()=> setOpen({id:'videos', title:'Short videos & reels'})} className='px-5 py-3 rounded-full border border-teal-500 text-teal-600 font-semibold hover:bg-teal-50 transition-colors duration-300 shadow-sm'>Export sample video</button>
+      <main className='grid grid-cols-12 gap-8 p-6 max-w-7xl mx-auto min-h-screen'>
+        <section className='col-span-12 md:col-span-8'>
+          <Card>
+            <div className='flex flex-col md:flex-row items-start md:items-center justify-between mb-6'>
+              <h3 className='font-extrabold text-3xl text-gray-900 leading-tight'>AI that helps artists promote and sell</h3>
+              <div className='text-sm text-gray-500 mt-2 md:mt-0'>Try the demos</div>
             </div>
-          </div>
-        </Card>
-      </section>
 
-      <aside className='col-span-12 md:col-span-4 space-y-6 mt-8 md:mt-0'>
-        <Card>
-          <h4 className='font-semibold text-xl mb-3 text-gray-800'>Tips</h4>
-          <ul className='text-sm text-gray-600 list-disc ml-6 space-y-2'>
-            <li>Use high-resolution images for posters and videos.</li>
-            <li>Keep captions short and include targeted hashtags.</li>
-            <li>Test pricing with small limited editions first.</li>
-          </ul>
-        </Card>
-        <Card>
-          <h4 className='font-semibold text-xl mb-3 text-gray-800'>Notifications</h4>
-          <Notifications />
-        </Card>
-      </aside>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6'>
+              {FEATURES.map(f => {
+                if (f.id === 'poster') {
+                  return (
+                    <Link
+                      key={f.id}
+                      to="/poster"
+                      className="block p-5 rounded-2xl text-black font-semibold shadow-md hover:shadow-xl transition-shadow duration-300"
+                      style={{
+                        background: 'linear-gradient(to right, rgba(20, 184, 166, 0.4), rgba(6, 182, 212, 0.4))',
+                        border: '2px solid rgba(20, 184, 166, 0.7)',
+                      }}
+                    >
+                      <div className='text-lg'>{f.title}</div>
+                      <div className='text-sm opacity-90 mt-2'>{f.short}</div>
+                    </Link>
+                  )
+                }
+                if (f.id === 'posts') {
+                  return (
+                    <Link
+                      key={f.id}
+                      to="/social"
+                      className="block p-5 rounded-2xl text-black font-semibold shadow-md hover:shadow-xl transition-shadow duration-300"
+                      style={{
+                        background: 'linear-gradient(to right, rgba(20, 184, 166, 0.4), rgba(6, 182, 212, 0.4))',
+                        border: '2px solid rgba(20, 184, 166, 0.7)', 
+                      }}
+                    >
+                      <div className='text-lg'>{f.title}</div>
+                      <div className='text-sm opacity-90 mt-2'>{f.short}</div>
+                    </Link>
+                  )
+                }
+                if (f.id === 'bios') {
+                  return (
+                    <Link
+                      key={f.id}
+                      to="/bios"
+                      className="block p-5 rounded-2xl text-black font-semibold shadow-md hover:shadow-xl transition-shadow duration-300"
+                      style={{
+                        background: 'linear-gradient(to right, rgba(20, 184, 166, 0.4), rgba(6, 182, 212, 0.4))',
+                        border: '2px solid rgba(20, 184, 166, 0.7)', 
+                      }}
+                    >
+                      <div className='text-lg'>{f.title}</div>
+                      <div className='text-sm opacity-90 mt-2'>{f.short}</div>
+                    </Link>
+                  )
+                }
+                return (
+                  <button
+                    key={f.id}
+                    onClick={() => setOpen(f)}
+                    className='text-left p-5 rounded-2xl border border-gray-300 hover:border-teal-400 hover:shadow-lg transition-all duration-300 bg-white shadow-sm group block font-semibold text-gray-900'
+                  >
+                    <div className='text-lg'>{f.title}</div>
+                    <div className='text-sm text-gray-600 mt-2'>{f.short}</div>
+                  </button>
+                )
+              })}
+            </div>
 
-      {open && (
-        <div className='fixed inset-0 bg-black/50 backdrop-blur-sm modal-backdrop flex items-center justify-center p-6 z-50'>
-          <div className='bg-white rounded-3xl p-8 w-full max-w-3xl shadow-2xl max-h-[90vh] overflow-y-auto'>
-            <div className='flex items-start justify-between gap-6'>
-              <div>
-                <h3 className='font-extrabold text-2xl text-gray-900'>{open.title}</h3>
-                <p className='text-sm text-gray-600 mt-3'>{open.short}</p>
-              </div>
-              <div>
-                <button onClick={()=> setOpen(null)} className='px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors duration-200'>Close</button>
+            <div className='mt-8'>
+              <h4 className='font-semibold text-xl mb-3 text-gray-800'>Quick actions</h4>
+              <div className='flex gap-4 flex-wrap'>
+                <Link to='/poster' className='px-5 py-3 rounded-full bg-teal-500 hover:bg-teal-600 text-white font-semibold shadow-md transition-colors duration-300'>Go to Poster Generator</Link>
+                <button onClick={()=> setOpen({id:'videos', title:'Short videos & reels'})} className='px-5 py-3 rounded-full border border-teal-500 text-teal-600 font-semibold hover:bg-teal-50 transition-colors duration-300 shadow-sm'>Export sample video</button>
               </div>
             </div>
-            <div className='mt-6'>
-              {renderContent(open.id)}
+          </Card>
+        </section>
+
+        <aside className='col-span-12 md:col-span-4 space-y-6 mt-8 md:mt-0'>
+          <Card>
+            <h4 className='font-semibold text-xl mb-3 text-gray-800'>Tips</h4>
+            <ul className='text-sm text-gray-600 list-disc ml-6 space-y-2'>
+              <li>Use high-resolution images for posters and videos.</li>
+              <li>Keep captions short and include targeted hashtags.</li>
+              <li>Test pricing with small limited editions first.</li>
+            </ul>
+          </Card>
+          <Card>
+            <h4 className='font-semibold text-xl mb-3 text-gray-800'>Notifications</h4>
+            <Notifications />
+          </Card>
+        </aside>
+
+        {open && (
+          <div className='fixed inset-0 bg-black/50 backdrop-blur-sm modal-backdrop flex items-center justify-center p-6 z-50'>
+            <div className='bg-white rounded-3xl p-8 w-full max-w-3xl shadow-2xl max-h-[90vh] overflow-y-auto'>
+              <div className='flex items-start justify-between gap-6'>
+                <div>
+                  <h3 className='font-extrabold text-2xl text-gray-900'>{open.title}</h3>
+                  <p className='text-sm text-gray-600 mt-3'>{open.short}</p>
+                </div>
+                <div>
+                  <button onClick={()=> setOpen(null)} className='px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors duration-200'>Close</button>
+                </div>
+              </div>
+              <div className='mt-6'>
+                {renderContent(open.id)}
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </main>
+        )}
+      </main>
+    </>
   )
 }
