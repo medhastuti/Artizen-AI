@@ -18,11 +18,11 @@
 ### Step 1. Run Node Server (Backend)
 node server.js
 
-### Step 1. **Open new Terminal** and Install dependencies
+### Step 2. **Open new Terminal** and Install dependencies
 npm install
 
-### Step 2. Start the development server
+### Step 3. Start the development server
 npm run dev
 
-### Step 3. Open generated link in the browser.
+### Step 4. Open generated link in the browser.
 http://localhost:5173/
