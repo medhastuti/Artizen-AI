@@ -193,8 +193,14 @@ export default function PosterPage() {
 
 
   return (
-    <div className='max-w-6xl mx-auto px-6 py-10'>
-      <h1 className='text-3xl font-bold text-gray-800 mb-6'>🎨 Custom Poster Designer</h1>
+    <div className='max-w-6xl mx-auto px-4 py-10'>
+      <h1 className="text-4xl font-bold text-teal-600 mb-6 text-center">
+        🎨 Custom Poster Designer
+      </h1>
+
+      <p className="mb-10 text-center text-gray-700 text-lg max-w-2xl mx-auto">
+        Create stunning, beautiful, downloadable posters with event titles, images, and themes. Pick from presets or customize your own!
+      </p>
 
       {/* Example Prompts */}
       <div className='mb-6'>
