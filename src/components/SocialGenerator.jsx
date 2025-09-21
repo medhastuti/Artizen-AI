@@ -93,10 +93,13 @@ Tagline: <tagline>
   ];
 
   return (
-    <div className="max-w-5xl mx-auto p-6">
-      <h2 className="text-3xl font-bold mb-6 text-teal-600 text-center">
-        🚀 Social Media Post Generator
-      </h2>
+    <div className="max-w-4xl mx-auto px-4 py-10 font-sans">
+      <h1 className="text-4xl font-bold mb-6 text-teal-600 text-center">
+        📱 Social Media Post Generator
+      </h1>
+      <p className="text-center text-gray-700 text-lg mb-8 max-w-2xl mx-auto">
+        Craft catchy captions and taglines for any product or audience. Choose a tone, add keywords, and generate content for Instagram, LinkedIn, and more!
+      </p>
 
       {/* Example Prompts */}
       <div className="mb-8">
