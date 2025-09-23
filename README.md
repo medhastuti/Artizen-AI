@@ -21,14 +21,14 @@ To run the repository locally, please follow the following steps.
 - Paste your API key where required in the file.
 - Save the .env file.
 
-### Step 1. Run Node Server (Backend)
+### Step 2. Run Node Server (Backend)
 node server.js
 
-### Step 2. **Open new Terminal** and Install dependencies
+### Step 3. **Open new Terminal** and Install dependencies
 npm install
 
-### Step 3. Start the development server
+### Step 4. Start the development server
 npm run dev
 
-### Step 4. Open generated link in the browser.
+### Step 5. Open generated link in the browser.
 http://localhost:5173/
