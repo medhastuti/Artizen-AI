@@ -14,6 +14,12 @@
 ---
 
 ## 📦 Getting Started (Run the given commands to run)
+To run the repository locally, please follow the following steps.
+
+### Step 1. Add your API Key
+- Open the .env file in the root directory.
+- Paste your API key where required in the file.
+- Save the .env file.
 
 ### Step 1. Run Node Server (Backend)
 node server.js
