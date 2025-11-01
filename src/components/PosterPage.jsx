@@ -249,7 +249,7 @@ export default function PosterPage() {
             />
           </div>
           <div>
-            <label className='block text-sm font-medium text-gray-700'>Upload Center Image</label>
+            <label className='block text-sm font-medium text-gray-700'>Upload Center</label>
             <input type='file' accept='image/*' onChange={handlePhotoUpload} className='mt-2' />
             <p className='text-xs text-gray-500 pt-1'>Upload your own image to personalize the poster.</p>
           </div>
