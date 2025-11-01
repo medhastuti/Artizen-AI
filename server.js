@@ -4,6 +4,7 @@ const cors = require('cors');
 
 const generateArtistBio = require('./api/generate-artist-bio');
 const generateSocialPost = require('./api/generate-social-post');
+const generateChatResponse = require('./api/generate-chat');
 
 const app = express();
 const port = process.env.PORT || 5001;
@@ -29,6 +30,7 @@ app.get('/api/test', (req, res) => {
 // Mount the API routes
 app.post('/api/generate-artist-bio', generateArtistBio);
 app.post('/api/generate-social-post', generateSocialPost);
+app.post('/api/generate-chat', generateChatResponse);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
