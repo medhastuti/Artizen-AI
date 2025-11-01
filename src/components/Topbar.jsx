@@ -54,8 +54,12 @@ export default function Topbar({ toggleSidebar, isMobile }) {
 
       const data = await response.json();
 
+      // Defensive check and fallback:
+      const aiContent =
+        data?.choices?.[0]?.message?.content ?? "Oops, couldn't load";
+
       const chatGptMessage = {
-        msg: data.choices[0].message.content,
+        msg: aiContent,
         sender: "ChatGPT",
         time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       };
@@ -63,10 +67,17 @@ export default function Topbar({ toggleSidebar, isMobile }) {
       setMessages([...chatMessages, chatGptMessage]);
     } catch (error) {
       console.error("Error sending message:", error);
+      const errorMessage = {
+        msg: "Oops, couldn't load!",
+        sender: "ChatGPT",
+        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      };
+      setMessages([...chatMessages, errorMessage]);
     } finally {
       setIsTyping(false);
     }
   }
+
 
   // AUTO SCROLL TO BOTTOM
   useEffect(() => {
