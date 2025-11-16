@@ -5,7 +5,7 @@
 ---
 
 ## 🔗 Live Demo (Deployed on Vercel)
-    **https://artizen-ai-flax.vercel.app/**
+   **https://artizen-ai-flax.vercel.app/**
 
 ---
 
@@ -27,13 +27,13 @@ To run the repository locally, please follow the following steps.
 - Save the .env file.
 
 ### Step 2. Run Node Server (Backend)
-node server.js
+    node server.js
 
 ### Step 3. **Open new Terminal** and Install dependencies
-npm install
+    npm install
 
 ### Step 4. Start the development server
-npm run dev
+    npm run dev
 
 ### Step 5. Open generated link in the browser.
-http://localhost:5173/
+    http://localhost:5173/
