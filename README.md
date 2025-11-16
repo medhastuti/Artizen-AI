@@ -5,7 +5,7 @@
 ---
 
 ## 🔗 Live Demo (Deployed on Vercel)
-👉 **https://artizen-ai-flax.vercel.app/**
+    **https://artizen-ai-flax.vercel.app/**
 
 ---
 
