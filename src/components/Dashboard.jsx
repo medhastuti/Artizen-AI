@@ -3,7 +3,7 @@ import VideoGenerator from './VideoGenerator'
 import PricingTool from './PricingTool'
 import PredictionsChart from './PredictionsChart'
 import Notifications from './Notifications'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Card({children, className=''}){
   const ref = useRef()
@@ -38,6 +38,12 @@ const FEATURES = [
 
 export default function Dashboard(){
   const [open, setOpen] = useState(null)
+  const navigate = useNavigate();
+
+  const navigateTo = (path) => {
+    window.scrollTo(0,0);
+    navigate(path);
+  };
 
   function renderContent(id){
     if(id==='videos') return <VideoGenerator />
@@ -71,10 +77,10 @@ export default function Dashboard(){
               {FEATURES.map(f => {
                 if (f.id === 'poster') {
                   return (
-                    <Link
+                    <div
                       key={f.id}
-                      to="/poster"
-                      className="block p-5 rounded-2xl text-black font-semibold shadow-md hover:shadow-xl transition-shadow duration-300"
+                      onClick={() => navigateTo('/poster')}
+                      className="block p-5 rounded-2xl text-black font-semibold shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer"
                       style={{
                         background: 'linear-gradient(to right, rgba(20, 184, 166, 0.4), rgba(6, 182, 212, 0.4))',
                         border: '2px solid rgba(20, 184, 166, 0.7)',
@@ -82,39 +88,39 @@ export default function Dashboard(){
                     >
                       <div className='text-lg'>{f.title}</div>
                       <div className='text-sm opacity-90 mt-2'>{f.short}</div>
-                    </Link>
+                    </div>
                   )
                 }
                 if (f.id === 'posts') {
                   return (
-                    <Link
+                    <div
                       key={f.id}
-                      to="/social"
-                      className="block p-5 rounded-2xl text-black font-semibold shadow-md hover:shadow-xl transition-shadow duration-300"
+                      onClick={() => navigateTo('/social')}
+                      className="block p-5 rounded-2xl text-black font-semibold shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer"
                       style={{
                         background: 'linear-gradient(to right, rgba(20, 184, 166, 0.4), rgba(6, 182, 212, 0.4))',
-                        border: '2px solid rgba(20, 184, 166, 0.7)', 
+                        border: '2px solid rgba(20, 184, 166, 0.7)',
                       }}
                     >
                       <div className='text-lg'>{f.title}</div>
                       <div className='text-sm opacity-90 mt-2'>{f.short}</div>
-                    </Link>
+                    </div>
                   )
                 }
                 if (f.id === 'bios') {
                   return (
-                    <Link
+                    <div
                       key={f.id}
-                      to="/bios"
-                      className="block p-5 rounded-2xl text-black font-semibold shadow-md hover:shadow-xl transition-shadow duration-300"
+                      onClick={() => navigateTo('/bios')}
+                      className="block p-5 rounded-2xl text-black font-semibold shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer"
                       style={{
                         background: 'linear-gradient(to right, rgba(20, 184, 166, 0.4), rgba(6, 182, 212, 0.4))',
-                        border: '2px solid rgba(20, 184, 166, 0.7)', 
+                        border: '2px solid rgba(20, 184, 166, 0.7)',
                       }}
                     >
                       <div className='text-lg'>{f.title}</div>
                       <div className='text-sm opacity-90 mt-2'>{f.short}</div>
-                    </Link>
+                    </div>
                   )
                 }
                 return (
@@ -133,8 +139,19 @@ export default function Dashboard(){
             <div className='mt-8'>
               <h4 className='font-semibold text-xl mb-3 text-gray-800'>Quick actions</h4>
               <div className='flex gap-4 flex-wrap'>
-                <Link to='/poster' className='px-5 py-3 rounded-full bg-teal-500 hover:bg-teal-600 text-white font-semibold shadow-md transition-colors duration-300'>Go to Poster Generator</Link>
-                <button onClick={()=> setOpen({id:'videos', title:'Short videos & reels'})} className='px-5 py-3 rounded-full border border-teal-500 text-teal-600 font-semibold hover:bg-teal-50 transition-colors duration-300 shadow-sm'>Export sample video</button>
+                <button
+                  onClick={() => navigateTo('/poster')}
+                  className='px-5 py-3 rounded-full bg-teal-500 hover:bg-teal-600 text-white font-semibold shadow-md transition-colors duration-300'
+                >
+                  Go to Poster Generator
+                </button>
+
+                <button
+                  onClick={()=> setOpen({id:'videos', title:'Short videos & reels'})}
+                  className='px-5 py-3 rounded-full border border-teal-500 text-teal-600 font-semibold hover:bg-teal-50 transition-colors duration-300 shadow-sm'
+                >
+                  Export sample video
+                </button>
               </div>
             </div>
           </Card>
@@ -149,6 +166,7 @@ export default function Dashboard(){
               <li>Test pricing with small limited editions first.</li>
             </ul>
           </Card>
+
           <Card>
             <h4 className='font-semibold text-xl mb-3 text-gray-800'>Notifications</h4>
             <Notifications />
@@ -167,6 +185,7 @@ export default function Dashboard(){
                   <button onClick={()=> setOpen(null)} className='px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors duration-200'>Close</button>
                 </div>
               </div>
+
               <div className='mt-6'>
                 {renderContent(open.id)}
               </div>
