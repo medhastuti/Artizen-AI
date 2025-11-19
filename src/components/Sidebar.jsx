@@ -71,7 +71,7 @@ export default function Sidebar({ isOpen, isMobile }) {
       {(isOpen || !isMobile) && (
         <div>
           <button className="w-full px-5 py-3 rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 text-white font-bold shadow-lg hover:brightness-110 transition duration-300">
-            + Invite people
+            + Share Feedback
           </button>
         </div>
       )}
