@@ -4,7 +4,7 @@ export default function Topbar({ toggleSidebar, isMobile }) {
   const [showChat, setShowChat] = useState(false);
   const [messages, setMessages] = useState([
     {
-      msg: "Hello, I'm Artisen AI..! Ask me anything!",
+      msg: "Hello, I'm Artizen AI..! Ask me anything!",
       sentTime: "just now",
       sender: "ChatGPT",
     },
