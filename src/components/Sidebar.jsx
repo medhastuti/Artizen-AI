@@ -1,8 +1,9 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export default function Sidebar({ isOpen, isMobile }) {
   const location = useLocation()
+  const navigate = useNavigate()
 
   const links = [
     { to: '/', label: '🏠 Dashboard' },
@@ -10,6 +11,11 @@ export default function Sidebar({ isOpen, isMobile }) {
     { to: '/social', label: '📣 Social Posts Content' },
     { to: '/bios', label: '💬 Bios Writer' },
   ]
+
+  const handleNavigate = (to) => {
+    window.scrollTo(0, 0)
+    navigate(to)
+  }
 
   return (
     <aside
@@ -20,11 +26,10 @@ export default function Sidebar({ isOpen, isMobile }) {
     >
 
       <div className={`flex items-center gap-4 cursor-pointer select-none ${!isOpen && isMobile ? 'justify-center' : ''}`}>
-        <div
-          className={`w-12 h-12 rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center text-white font-extrabold text-lg`}
-        >
+        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center text-white font-extrabold text-lg">
           AH
         </div>
+
         {(isOpen || !isMobile) && (
           <div>
             <div className="font-bold text-lg text-gray-900">Human Testman</div>
@@ -44,9 +49,9 @@ export default function Sidebar({ isOpen, isMobile }) {
 
             return (
               <li key={to}>
-                <Link
-                  to={to}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-xl font-semibold transition-colors duration-300 select-none
+                <div
+                  onClick={() => handleNavigate(to)}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-xl font-semibold transition-colors duration-300 select-none cursor-pointer
                     ${
                       isActive
                         ? 'bg-teal-100 text-teal-700 shadow-inner'
@@ -56,7 +61,7 @@ export default function Sidebar({ isOpen, isMobile }) {
                 >
                   <span>{emoji}</span>
                   {(isOpen || !isMobile) && <span className="whitespace-nowrap">{text}</span>}
-                </Link>
+                </div>
               </li>
             )
           })}
